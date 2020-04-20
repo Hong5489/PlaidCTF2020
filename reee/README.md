@@ -58,6 +58,7 @@ void entry(undefined8 uParm1,undefined8 uParm2,undefined8 uParm3)
 Looks like the `main` function is located at `FUN_0040064e`
 
 *Note: I modified the code to more readable, it is not the original code*
+
 **main function:**
 ```c
 void main(int iParm1)
@@ -76,13 +77,13 @@ void main(int iParm1)
     j = 0;
     while (j < 0x228) {
       cVar1 = unscramble(check_flag[j]); 
-      							// unscramble the check_flag function 
-      check_flag[j] = cVar1;	// Overwrite the function
+                                // unscramble the check_flag function 
+      check_flag[j] = cVar1;    // Overwrite the function
       j = j + 1;
     }
     i = i + 1;
   }
-  valid = check_flag();			// If check_flag return 1 then is valid flag
+  valid = check_flag();         // If check_flag return 1 then is valid flag
   if (valid == 0) {
     puts("Wrong!");
   }
@@ -132,11 +133,11 @@ ulong check_flag(void)
   int i;
   int j;
   
-  input_length = strlen(input);		// Calculate input length
+  input_length = strlen(input);     // Calculate input length
   bVar5 = 0x50;
   i = 0;
-  while (i < 0x539) {				// XORing the input 0x539 times
-    j = 0;							// using 0x50 as starting key
+  while (i < 0x539) {               // XORing the input 0x539 times
+    j = 0;                          // using 0x50 as starting key
     while (j < input_length) {
       input[j] = input[j] ^ bVar5;
       bVar5 = bVar5 ^ input[j];
@@ -148,7 +149,7 @@ ulong check_flag(void)
   i = 0;
   while (i < input_length) {		
   	if(input[i] != (&UNK_004008eb)[i]) // If all XORed input is equal to 
-  									   // the memory then input is valid
+                                       // the memory then input is valid
   		return false
   }
   return true
@@ -181,7 +182,7 @@ for i in range(0x539):			# XOring the input according
 
 for i in range(length):
 	solver.add(data[i] == inp[i]) # Add condition which
-								  # input is equal to memory
+                                  # input is equal to memory
 	# Condition flag is in printable ascii range
 	solver.add(And(flag[i] >= 33,flag[i] <= 126))  
 # Condition flag is in flag format according to hint
