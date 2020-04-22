@@ -213,3 +213,8 @@ Finally, we get the Flag!!!
 ```
 pctf{ok_nothing_too_fancy_there!}
 ```
+
+## Better Solution
+Actually we can just brute force without z3
+
+[Writeup by duks](https://duksctf.github.io/2020/04/19/PLaidCTF-reee.html)
